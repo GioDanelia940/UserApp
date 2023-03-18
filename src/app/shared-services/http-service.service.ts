@@ -16,4 +16,8 @@ export class HttpServiceService {
     const url: string = `http://localhost:4000/users/${id}`;
     return this.http.get(url);
   }
+  getFriendList(id: number): Observable<any> {
+    const url: string = `http://localhost:4000/users/${id}/friends`;
+    return this.http.get(url);
+  }
 }

@@ -1,14 +1,41 @@
-<Article>
+<Article *ngIf="user != undefined && friends != undefined">
   <div class="col-md-8 m-auto">
     <div class="profile">
       <img src="{{ user.profilePicture }}" alt="" class="profile-pic" />
-      <div class="d-flex flex-column" style="margin-left: 10px;">
-        <h1>{{user.firstName}} {{user.lastName}}</h1>
-        <p>{{user.description}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda laboriosam debitis nulla excepturi exercitationem ea, illo nisi eos laborum eius. Quam, est exercitationem vel error expedita voluptas quos totam, similique, quisquam adipisci libero quod non blanditiis. Officiis, error quae nostrum necessitatibus id et quas, temporibus ullam consequuntur voluptate, maxime magni laudantium beatae est quidem eligendi corporis aliquam hic quaerat explicabo doloribus nisi. Obcaecati, voluptate dolores. Accusamus dicta id commodi, eveniet sunt, libero optio rem architecto repudiandae quasi explicabo ipsum ducimus adipisci, tempore molestias dolor facilis dolore deleniti animi reprehenderit reiciendis at. Dolores soluta molestias iure quidem eos rem possimus asperiores tenetur eveniet delectus. Placeat ab debitis assumenda architecto dolor nisi dolorem tempora! Earum praesentium, et deserunt laborum ratione corporis illo at commodi ipsum architecto quasi officia minus qui tenetur natus, consequatur in minima corrupti saepe animi facilis aliquid reiciendis exercitationem? Dolore dolorem, suscipit numquam ullam illum nihil quod natus ipsum laborum fugiat dolorum voluptatibus vitae omnis sapiente. Inventore autem ea exercitationem, reprehenderit nam eum maxime sunt suscipit qui odit quia, doloribus illo incidunt at eos accusamus cum. Laborum culpa magni ducimus labore ratione veritatis libero hic dolorem perferendis exercitationem blanditiis facere impedit eveniet doloribus animi, unde sapiente quia minima magnam?</p>
+      <div class="d-flex flex-column" style="margin-left: 10px">
+        <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+        <p>
+          {{ user.description }} Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Assumenda laboriosam debitis nulla excepturi
+          exercitationem ea, illo nisi eos laborum eius. Quam, est
+          exercitationem vel error expedita voluptas quos totam, similique,
+          quisquam adipisci libero quod non blanditiis. Officiis, error quae
+          nostrum necessitatibus id et quas, temporibus ullam consequuntur
+          voluptate, maxime magni laudantium beatae est quidem eligendi corporis
+          aliquam hic quaerat explicabo doloribus nisi. Obcaecati, voluptate
+          dolores. Accusamus dicta id commodi, eveniet sunt, libero optio rem
+          architecto repudiandae quasi explicabo ipsum ducimus adipisci, tempore
+          molestias dolor facilis dolore deleniti animi reprehenderit reiciendis
+          at. Dolores soluta molestias iure quidem eos rem possimus asperiores
+          tenetur eveniet delectus. Placeat ab debitis assumenda architecto
+          dolor nisi dolorem tempora! Earum praesentium, et deserunt laborum
+          ratione corporis illo at commodi ipsum architecto quasi officia minus
+          qui tenetur natus, consequatur in minima corrupti saepe animi facilis
+          aliquid reiciendis exercitationem? Dolore dolorem, suscipit numquam
+          ullam illum nihil quod natus ipsum laborum fugiat dolorum voluptatibus
+          vitae omnis sapiente. Inventore autem ea exercitationem, reprehenderit
+          nam eum maxime sunt suscipit qui odit quia, doloribus illo incidunt at
+          eos accusamus cum. Laborum culpa magni ducimus labore ratione
+          veritatis libero hic dolorem perferendis exercitationem blanditiis
+          facere impedit eveniet doloribus animi, unde sapiente quia minima
+          magnam?
+        </p>
       </div>
     </div>
     <div class="friend-list">
-        
+      <div *ngFor="let friend of friends">
+        <p>{{ friend.firstName }}</p>
+      </div>
     </div>
   </div>
 </Article>

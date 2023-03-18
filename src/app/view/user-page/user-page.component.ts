@@ -9,6 +9,7 @@ import { HttpServiceService } from 'src/app/shared-services/http-service.service
 })
 export class UserPageComponent implements OnInit {
   user!: any;
+  friends!: any;
   constructor(
     private route: ActivatedRoute,
     private http: HttpServiceService
@@ -17,6 +18,14 @@ export class UserPageComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.http.getUserById(params['id']).subscribe((resp) => {
         this.user = resp;
+      });
+      this.http.getFriendList(params['id']).subscribe((resp) => {
+        this.friends = resp.map((element: any) => element.value);
+        this.friends.forEach((element: any, index: any, array: any) => {
+          this.http.getUserById(element).subscribe((resp) => {
+            array[index] = resp;
+          });
+        });
       });
     });
   }

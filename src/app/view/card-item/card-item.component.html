@@ -1,1 +1,18 @@
-<p>card-item works!</p>
+<mat-card class="card-item">
+  <mat-card-header style="margin-bottom: 5px">
+    <mat-card-title>{{ card.firstName }} {{ card.lastName }}</mat-card-title>
+  </mat-card-header>
+  <a routerLink="/view/{{ card.id }}">
+    <img
+      mat-card-image
+      src="{{ card.profilePicture }}"
+      alt="photo of user"
+      class="card-img"
+    />
+  </a>
+  <mat-card-content>
+    <p>
+      {{ card.description }}
+    </p>
+  </mat-card-content>
+</mat-card>

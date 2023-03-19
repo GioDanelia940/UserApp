@@ -33,8 +33,12 @@
       </div>
     </div>
     <div class="friend-list">
-      <div *ngFor="let friend of friends">
-        <p>{{ friend.firstName }}</p>
+      <span class="friend-title"> Friends</span>
+      <div class="friend-list-border">
+        <app-friend-item
+          *ngFor="let friend of friends"
+          [friend]="friend"
+        ></app-friend-item>
       </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from 'src/material.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { FriendItemComponent } from './view/user-page/friend-item/friend-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     CardItemComponent,
     UserPageComponent,
     HeaderComponent,
+    FriendItemComponent,
   ],
   imports: [
     BrowserModule,

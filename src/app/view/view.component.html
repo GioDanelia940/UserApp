@@ -1,1 +1,5 @@
-<p>view works!</p>
+<article>
+    <div class="col-md-8 d-flex flex-wrap m-auto justify-content-start">
+      <app-card-item *ngFor="let user of users" [card]="user"></app-card-item>
+    </div>
+</article>

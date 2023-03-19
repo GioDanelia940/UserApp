@@ -1,0 +1,32 @@
+.profile {
+  display: flex;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.profile-pic {
+  margin: 5px;
+  border-radius: 10px;
+  height: 290px;
+  width: 290px;
+}
+.friend-list {
+  margin-top: 40px;
+}
+.friend-title {
+  background-color: grey;
+  padding: 5px;
+  border-radius: 0px 15px 0 0;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: white;
+}
+.friend-list-border {
+    display: flex;
+    flex-direction: column;
+  width: 100%;
+  border: 1px solid gray;
+  margin-top: 3px;
+}

@@ -1,0 +1,23 @@
+.friend-item {
+  height: 100px;
+  width: 100%-4px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.friend-item:hover {
+  background-color: rgb(218, 218, 218);
+}
+.profile-pic {
+  margin: 5px;
+  height: 90px;
+  width: 90px;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}

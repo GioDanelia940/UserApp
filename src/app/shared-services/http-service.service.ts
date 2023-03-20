@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -19,5 +19,9 @@ export class HttpServiceService {
   getFriendList(id: number): Observable<any> {
     const url: string = `http://localhost:4000/users/${id}/friends`;
     return this.http.get(url);
+  }
+  getUsersByPage(page: number): Observable<any> {
+    const url: string = `http://localhost:4000/users?_page=${page}&_limit=2`;
+    return this.http.get(url).pipe(delay(200));
   }
 }

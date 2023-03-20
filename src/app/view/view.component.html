@@ -1,5 +1,10 @@
 <article>
-    <div class="col-md-8 d-flex flex-wrap m-auto justify-content-start">
-      <app-card-item *ngFor="let user of users" [card]="user"></app-card-item>
+  <div class="col-md-8 d-flex flex-wrap m-auto justify-content-start">
+    <div *ngFor="let user of users; let i = index">
+      <app-card-item [card]="user" *ngIf="i != users.length - 1">
+      </app-card-item>
+      <app-card-item #lastCard [card]="user" *ngIf="i == users.length - 1">
+      </app-card-item>
     </div>
+  </div>
 </article>

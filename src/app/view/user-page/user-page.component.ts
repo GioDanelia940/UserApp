@@ -19,7 +19,6 @@ export class UserPageComponent implements OnInit {
   friends: any = [];
   friendsIds!: any;
   currentPage: number = 1;
-  count: number = 0;
   @ViewChildren('lastFriend', { read: ElementRef })
   lastCard: QueryList<ElementRef> | undefined;
   observer!: any;
@@ -28,6 +27,7 @@ export class UserPageComponent implements OnInit {
     private route: ActivatedRoute,
     private http: HttpServiceService
   ) {}
+
   ngOnInit(): void {
     this.IntersectionObserver();
     this.route.params.subscribe((params: Params) => {
@@ -44,6 +44,7 @@ export class UserPageComponent implements OnInit {
       });
     });
   }
+
   ngAfterViewInit(): void {
     this.lastCard?.changes.subscribe((entry) => {
       if (entry.last) {
@@ -51,6 +52,7 @@ export class UserPageComponent implements OnInit {
       }
     });
   }
+
   IntersectionObserver() {
     let options = {
       root: null,
@@ -59,7 +61,6 @@ export class UserPageComponent implements OnInit {
     };
     this.observer = new IntersectionObserver((entries) => {
       if (entries[entries.length - 1].isIntersecting) {
-        this.count++;
         this.currentPage += 1;
         this.route.params.subscribe((params: Params) => {
           this.http

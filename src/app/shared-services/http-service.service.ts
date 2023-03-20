@@ -22,6 +22,10 @@ export class HttpServiceService {
   }
   getUsersByPage(page: number): Observable<any> {
     const url: string = `http://localhost:4000/users?_page=${page}&_limit=2`;
-    return this.http.get(url).pipe(delay(200));
+    return this.http.get(url);
+  }
+  getFriendsByPage(id: number, page: number): Observable<any> {
+    const url: string = `http://localhost:4000/users/${id}/friends?_page=${page}&_limit=2`;
+    return this.http.get(url);
   }
 }

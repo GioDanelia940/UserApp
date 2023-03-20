@@ -35,10 +35,16 @@
     <div class="friend-list">
       <span class="friend-title"> Friends</span>
       <div class="friend-list-border">
-        <app-friend-item
-          *ngFor="let friend of friends"
-          [friend]="friend"
-        ></app-friend-item>
+        <div *ngFor="let friend of friends; let i = index">
+          <app-friend-item [friend]="friend" *ngIf="i != friends.length - 1">
+          </app-friend-item>
+          <app-friend-item
+            #lastFriend
+            [friend]="friend"
+            *ngIf="i == friends.length - 1"
+          >
+          </app-friend-item>
+        </div>
       </div>
     </div>
   </div>

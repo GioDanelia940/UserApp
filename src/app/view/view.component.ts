@@ -4,7 +4,6 @@ import {
   ElementRef,
   OnInit,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { HttpServiceService } from '../shared-services/http-service.service';
@@ -43,9 +42,7 @@ export class ViewComponent implements OnInit, AfterViewInit {
     let options = {
       root: null,
       rootMargin: '0px',
-      threshhold: 0,
-      trackVisibility: true,
-      delay: 100,
+      threshhold: 0
     };
     this.observer = new IntersectionObserver((entries) => {
       if (entries[entries.length - 1].isIntersecting) {

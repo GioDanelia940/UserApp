@@ -5,6 +5,11 @@
   padding: 3px 8px;
   border-radius: 5px;
 }
-.logo:hover{
-    background-color: rgb(224, 223, 223);
+.logo:hover {
+  background-color: rgb(224, 223, 223);
+}
+.loader {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
 }

@@ -7,7 +7,7 @@
 
 ## General info
 
-user list website, where you can see users list and view their detailed info, website has infinite scrolling function which is implemented using intersectionObserver.
+user list website, where you can see users list and view their detailed info, website has infinite scrolling function which is implemented using intersectionObserver ,which is native JavaScript API that enables us to observe an element and detect when it passes a specified point in a scrolling container .
 
 ## Technologies
 
@@ -48,6 +48,6 @@ $ json-server --watch db.json
   ![Algorithm schema](./images/user-page.png)
 
   User page displays user's detailed information and their friend list, friend list has infinite scroll too.
-  initially 2 friends are loaded, but if more friends are visible in view more friends objects get fetched from database, until last friend item is not in view.
+  initially 2 friends are loaded, but if more friends are visible in view, more friends objects get fetched from database, until last friend item is not in view.
   by clicking on friend item you will be taken to new user page where friend's detailed information and their friend list will be displayed.
   by navigating new tab is not opened, but route changes and user page component collects new data with route.params to load data dynamically.

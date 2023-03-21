@@ -1,27 +1,50 @@
-# UserApp
+## Table of contents
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Website functionalities](#Website-functionalities)
 
-## Development server
+## General info
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+user list website, where you can see users list and view their detailed info, website has infinite scrolling function which is implemented using intersectionObserver.
 
-## Code scaffolding
+## Technologies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The project is created with:
 
-## Build
+- Angular 15
+- typescript
+- Angular material
+- bootstrap
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Setup
 
-## Running unit tests
+To run this project, run following commands in CLI.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+$ npm install
+$ ng serve
+$ json-server --watch db.json
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Website functionalities
 
-## Further help
+- View page
+  when you first visit the website, the initial page looks like this.
+  ![Algorithm schema](./images/view-page.png)
+  
+  header has a link to home page, you can use it to return home page.
+  in view users are displayed on cards, initially 2 user gets loaded, but if last card is visible more cards get loaded, until last card is not in view.
+  by scrolling down, and revealing more cards, more cards will be loaded.
+  website uses loading interceptor and has delay set for http requests to make new cards loading more visible.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- user page
+  when navigating to user page by clicking on cards you will be taken to user page
+  ![Algorithm schema](./images/user-page.png)
+  
+  User page displays user's detailed information and their friend list, friend list gets loaded with infinite scroll too.
+  initially 2 friends are loaded, but if more friends are visible in view more friends objects get fetched from database. until last friend item is not in view.
+  by clicking on friend item you will be taken to new user page where friend's detailed information and their friend list will be displayed.
+  by navigating new tab is not opened, but route changes and user page component collects new data with route.params to load data dynamically.

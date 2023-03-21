@@ -32,18 +32,20 @@ $ json-server --watch db.json
 ## Website functionalities
 
 - View page
+
   when you first visit the website, the initial page looks like this.
   ![Algorithm schema](./images/view-page.png)
-  
+
   header has a link to home page, you can use it to return home page.
   in view users are displayed on cards, initially 2 user gets loaded, but if last card is visible more cards get loaded, until last card is not in view.
   by scrolling down, and revealing more cards, more cards will be loaded.
   website uses loading interceptor and has delay set for http requests to make new cards loading more visible.
 
 - user page
+
   when navigating to user page by clicking on cards you will be taken to user page
   ![Algorithm schema](./images/user-page.png)
-  
+
   User page displays user's detailed information and their friend list, friend list gets loaded with infinite scroll too.
   initially 2 friends are loaded, but if more friends are visible in view more friends objects get fetched from database. until last friend item is not in view.
   by clicking on friend item you will be taken to new user page where friend's detailed information and their friend list will be displayed.

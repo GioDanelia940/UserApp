@@ -16,9 +16,9 @@ import { HttpServiceService } from 'src/app/shared-services/http-service.service
 export class UserPageComponent implements OnInit {
   user!: any;
   userId!: number;
-  friends: any = [];
+  friends: any;
   friendsIds!: any;
-  currentPage: number = 1;
+  currentPage!: number;
   @ViewChildren('lastFriend', { read: ElementRef })
   lastCard: QueryList<ElementRef> | undefined;
   observer!: any;
@@ -32,6 +32,8 @@ export class UserPageComponent implements OnInit {
     this.IntersectionObserver();
     this.route.params.subscribe((params: Params) => {
       this.http.getUserById(params['id']).subscribe((resp) => {
+        this.currentPage = 1;
+        this.friends = [];
         this.user = resp;
       });
       this.http.getFriendsByPage(params['id'], 1).subscribe((resp) => {
@@ -62,20 +64,18 @@ export class UserPageComponent implements OnInit {
     this.observer = new IntersectionObserver((entries) => {
       if (entries[entries.length - 1].isIntersecting) {
         this.currentPage += 1;
-        this.route.params.subscribe((params: Params) => {
-          this.http
-            .getFriendsByPage(params['id'], this.currentPage)
-            .subscribe((resp) => {
-              this.friendsIds = resp.map((element: any) => element.value);
-              this.friendsIds.forEach(
-                (element: any, index: number, array: any) => {
-                  this.http.getUserById(element).subscribe((resp) => {
-                    this.friends.push(resp);
-                  });
-                }
-              );
-            });
-        });
+        this.http
+          .getFriendsByPage(this.user.id, this.currentPage)
+          .subscribe((resp) => {
+            this.friendsIds = resp.map((element: any) => element.value);
+            this.friendsIds.forEach(
+              (element: any, index: number, array: any) => {
+                this.http.getUserById(element).subscribe((resp) => {
+                  this.friends.push(resp);
+                });
+              }
+            );
+          });
       }
     });
   }

@@ -7,7 +7,7 @@
 
 ## General info
 
-user list website, where you can see users list and view their detailed info, website has infinite scrolling function which is implemented using intersectionObserver ,which is native JavaScript API that enables us to observe an element and detect when it passes a specified point in a scrolling container .
+user list website, where you can see users list and view their detailed info, website has infinite scrolling function which is implemented using intersectionObserver. intersectionObserver is native JavaScript API that enables us to observe an element and detect when it passes a specified point in a scrolling container .
 
 ## Technologies
 

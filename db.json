@@ -153,6 +153,34 @@
       "lastName": "Kim",
       "profilePicture": "https://randomuser.me/api/portraits/women/22.jpg",
       "description": "I am a web designer with experience in Sketch and Figma."
+    },
+    {
+      "id": 23,
+      "firstName": "peter",
+      "lastName": "parker",
+      "profilePicture": "https://randomuser.me/api/portraits/men/23.jpg",
+      "description": "I am a UX designer with experience in user research and usability testing."
+    },
+    {
+      "id": 24,
+      "firstName": "mary",
+      "lastName": "jane",
+      "profilePicture": "https://randomuser.me/api/portraits/women/24.jpg",
+      "description": "I am a software engineer with expertise in Python and Django."
+    },
+    {
+      "id": 25,
+      "firstName": "jack",
+      "lastName": "jones",
+      "profilePicture": "https://randomuser.me/api/portraits/men/25.jpg",
+      "description": "I am a mobile app developer with experience in Kotlin and Android development."
+    },
+    {
+      "id": 26,
+      "firstName": "jimmy",
+      "lastName": "jameson",
+      "profilePicture": "https://randomuser.me/api/portraits/men/26.jpg",
+      "description": "I am a front-end developer with expertise in React and Redux."
     }
   ],
   "friends": [
@@ -248,7 +276,22 @@
     },
     {
       "id": 20,
-      "value": 22,
+      "value": 23,
+      "userId": 1
+    },
+    {
+      "id": 21,
+      "value": 24,
+      "userId": 1
+    },
+    {
+      "id": 22,
+      "value": 25,
+      "userId": 1
+    },
+    {
+      "id": 23,
+      "value": 26,
       "userId": 1
     },
     { "id": 1, "value": 3, "userId": 2 },

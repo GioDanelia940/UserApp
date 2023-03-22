@@ -19,6 +19,7 @@ export class UserPageComponent implements OnInit {
   friends: any;
   friendsIds!: any;
   currentPage!: number;
+  pagesLeft: boolean = true;
   @ViewChildren('lastFriend', { read: ElementRef })
   lastCard: QueryList<ElementRef> | undefined;
   observer!: any;
@@ -62,20 +63,25 @@ export class UserPageComponent implements OnInit {
       threshhold: 0.1,
     };
     this.observer = new IntersectionObserver((entries) => {
-      if (entries[entries.length - 1].isIntersecting) {
-        this.currentPage += 1;
-        this.http
-          .getFriendsByPage(this.user.id, this.currentPage)
-          .subscribe((resp) => {
-            this.friendsIds = resp.map((element: any) => element.value);
-            this.friendsIds.forEach(
-              (element: any, index: number, array: any) => {
-                this.http.getUserById(element).subscribe((resp) => {
-                  this.friends.push(resp);
-                });
+      if (this.pagesLeft) {
+        if (entries[entries.length - 1].isIntersecting) {
+          this.currentPage += 1;
+          this.http
+            .getFriendsByPage(this.user.id, this.currentPage)
+            .subscribe((resp) => {
+              if (resp.length == 0) {
+                this.pagesLeft = false;
               }
-            );
-          });
+              this.friendsIds = resp.map((element: any) => element.value);
+              this.friendsIds.forEach(
+                (element: any, index: number, array: any) => {
+                  this.http.getUserById(element).subscribe((resp) => {
+                    this.friends.push(resp);
+                  });
+                }
+              );
+            });
+        }
       }
     });
   }

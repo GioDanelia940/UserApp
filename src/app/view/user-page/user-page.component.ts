@@ -33,6 +33,7 @@ export class UserPageComponent implements OnInit {
     this.IntersectionObserver();
     this.route.params.subscribe((params: Params) => {
       this.http.getUserById(params['id']).subscribe((resp) => {
+        this.pagesLeft = true;
         this.currentPage = 1;
         this.friends = [];
         this.user = resp;

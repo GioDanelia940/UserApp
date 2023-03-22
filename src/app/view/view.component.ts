@@ -50,9 +50,10 @@ export class ViewComponent implements OnInit, AfterViewInit {
           this.http.getUsersByPage(this.currentPage + 1).subscribe((resp) => {
             if (resp.length == 0) {
               this.pagesLeft = false;
+            } else {
+              this.currentPage += 1;
+              this.users.push(...resp);
             }
-            this.currentPage += 1;
-            this.users.push(...resp);
           });
         }
       }

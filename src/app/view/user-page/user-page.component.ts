@@ -72,15 +72,16 @@ export class UserPageComponent implements OnInit {
             .subscribe((resp) => {
               if (resp.length == 0) {
                 this.pagesLeft = false;
+              } else {
+                this.friendsIds = resp.map((element: any) => element.value);
+                this.friendsIds.forEach(
+                  (element: any, index: number, array: any) => {
+                    this.http.getUserById(element).subscribe((resp) => {
+                      this.friends.push(resp);
+                    });
+                  }
+                );
               }
-              this.friendsIds = resp.map((element: any) => element.value);
-              this.friendsIds.forEach(
-                (element: any, index: number, array: any) => {
-                  this.http.getUserById(element).subscribe((resp) => {
-                    this.friends.push(resp);
-                  });
-                }
-              );
             });
         }
       }

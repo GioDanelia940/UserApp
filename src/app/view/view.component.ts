@@ -19,7 +19,7 @@ export class ViewComponent implements OnInit, AfterViewInit {
   @ViewChildren('lastCard', { read: ElementRef })
   lastCard: QueryList<ElementRef> | undefined;
   observer: any;
-
+  pagesLeft: boolean = true;
   constructor(private http: HttpServiceService) {}
 
   ngOnInit(): void {
@@ -42,14 +42,19 @@ export class ViewComponent implements OnInit, AfterViewInit {
     let options = {
       root: null,
       rootMargin: '0px',
-      threshhold: 0
+      threshhold: 0,
     };
     this.observer = new IntersectionObserver((entries) => {
-      if (entries[entries.length - 1].isIntersecting) {
-        this.http.getUsersByPage(this.currentPage + 1).subscribe((resp) => {
-          this.currentPage += 1;
-          this.users.push(...resp);
-        });
+      if (this.pagesLeft) {
+        if (entries[entries.length - 1].isIntersecting) {
+          this.http.getUsersByPage(this.currentPage + 1).subscribe((resp) => {
+            if (resp.length == 0) {
+              this.pagesLeft = false;
+            }
+            this.currentPage += 1;
+            this.users.push(...resp);
+          });
+        }
       }
     });
   }
